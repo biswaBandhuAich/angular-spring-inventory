@@ -1,0 +1,14 @@
+body{
+    background-color: aliceblue;
+    padding: 10px;
+}
+button{
+    margin-right: 25px;
+}
+
+.medicineList{
+    margin-top: 25px;
+}
+th{
+    align-content: center;
+}

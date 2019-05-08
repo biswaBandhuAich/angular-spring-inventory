@@ -1,0 +1,51 @@
+<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"/>
+<body>
+<h2>
+  Medicine Inventory!
+</h2>
+<div align="center">
+  <form >
+    <table  >
+        <tr><td>Id : </td><td><input type="text" [(ngModel)]="addmedicine.id" name="id"/></td></tr>
+        <tr><td>Name : </td><td><input type="text" [(ngModel)]="addmedicine.brand" name="name"/></td></tr>
+        <tr><td>Generic : </td><td><input type="text" [(ngModel)]="addmedicine.generic" name="generic"/></td></tr>
+        <tr><td>Schedule-H : </td><td><select [(ngModel)]="addmedicine.scheduleh" name="scheduleh">
+          <option value="Yes">Yes</option>
+          <option value="No">No</option>
+          </select>
+        </td></tr>
+        <tr><td>Quantity : </td><td><input type="number" min="0" [(ngModel)]="addmedicine.quantity" name="quantity"/></td></tr>
+        <tr><td>Unit Price : </td><td><input type="number" min="0" [(ngModel)]="addmedicine.unitprice" name="unitprice"/></td></tr>
+        <tr><td>Total Cost : </td><td><input type="text" value={{addmedicine.quantity*addmedicine.unitprice}} [(ngModel)]="addmedicine.totalprice" name="totalprice"/></td></tr>
+    </table>
+    <button type="button" class="btn btn-primary btn-sm" (click)="generateFunction(btn_def)">{{btn_def}}</button>
+    <button type="button" class="btn btn-primary btn-sm" (click)="resetAll()">Reset</button>
+      
+  </form>
+</div>
+<div class="medicineList">
+<div class="table table-sm">
+  <table border="1" class="table" >
+    <thead class="thead-dark">
+    <tr align="center">
+      <th>ID</th>
+      <th>Brand</th>
+      <th>Generic</th>
+      <th>Quantity</th>
+      <th colspan="2">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor = "let medicine of _medicine">
+      <th>{{medicine.id}}</th>
+      <th>{{medicine.brand}}</th>
+      <th>{{medicine.generic}}</th>
+      <th>{{medicine.quantity}}</th>
+      <th><button type="button" class="btn btn-primary btn-sm" (click)="editMedicine(medicine.id)">EDIT</button></th>
+      <th><button type="button" class="btn btn-primary btn-sm" (click)="delMedicine(medicine.id)">DELETE</button></th>
+    </tr>
+  </tbody>
+  </table>
+</div>
+</div>
+</body>
